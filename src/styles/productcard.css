@@ -1,0 +1,147 @@
+/* src/styles/productCard.css */
+.product-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out, opacity 0.4s ease, background-color 0.3s ease;
+  overflow: hidden;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  max-width: 300px;
+  margin: 20px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 400px;
+}
+
+.product-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  opacity: 0.9;
+  background-color: #f7f7f7;  /* Soft background color on hover */
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.product-card img:hover {
+  transform: scale(1.05);
+  opacity: 0.85;
+}
+
+.product-card .title {
+  font-size: 1.35rem;
+  font-weight: bold;
+  margin-top: 20px;
+  color: #333;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.product-card .title:hover {
+  color: #ff6347;  /* Tomato color */
+  transform: translateY(-5px);
+}
+
+.product-card .price {
+  color: #ff6347;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-top: 15px;
+  transition: transform 0.3s ease, color 0.3s ease, background-color 0.3s ease;
+  padding: 5px 0;
+}
+
+.product-card .price:hover {
+  transform: scale(1.05);
+  color: #e74c3c;  /* Dark red */
+  background-color: #ffefef;  /* Light red background */
+  border-radius: 8px;
+}
+
+.product-card .description {
+  font-size: 1.1rem;
+  color: #777;
+  margin-top: 15px;
+  line-height: 1.5;
+  padding: 0 10px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.product-card .description:hover {
+  opacity: 1;
+  transform: translateY(-5px);
+}
+
+.product-card .button {
+  background-color: #ff6347;
+  color: white;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: none;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card .button:hover {
+  background-color: #e74c3c;
+  transform: scale(1.1);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+.product-card .button:active {
+  transform: scale(1.05);  /* Slight shrink effect when clicked */
+}
+
+.product-card .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 12px;
+}
+
+.product-card:hover .overlay {
+  opacity: 1;
+}
+
+.product-card .overlay .title,
+.product-card .overlay .price {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.product-card .overlay .title {
+  font-size: 1.5rem;
+}
+
+.product-card .overlay .price {
+  font-size: 1.8rem;
+  margin-top: 10px;
+}
+
+/* Optional: Responsive styling */
+@media (max-width: 768px) {
+  .product-card {
+    max-width: 90%;
+  }
+}
