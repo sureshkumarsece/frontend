@@ -13,7 +13,7 @@ const ViewOrders = () => {
       try {
         const token = localStorage.getItem('token');
         console.log("Token being sent:", token); 
-        const res = await axios.get('http://localhost:5000/api/orders/my-orders', {
+        const res = await axios.get('https://gadgetgear-production.up.railway.app/api/orders/my-orders', {
           headers: { Authorization: `Bearer ${token}` }, 
         });
         console.log("Fetched Orders:", res.data); 

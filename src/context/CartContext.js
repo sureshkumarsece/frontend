@@ -5,7 +5,7 @@ export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
-    const API_URL = process.env.REACT_APP_API_URL || "http://localhost:4000/api/cart";
+    const API_URL = process.env.REACT_APP_API_URL || "https://gadgetgear-production.up.railway.app/api/cart";
 
     useEffect(() => {
         fetchCart();
@@ -43,7 +43,7 @@ export const CartProvider = ({ children }) => {
 
     const updateCartItem = async (id, quantity) => {
         try {
-            const response = await fetch(`http://localhost:4000/api/cart/${id}`, {
+            const response = await fetch(`https://gadgetgear-production.up.railway.app/api/cart/${id}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ quantity })

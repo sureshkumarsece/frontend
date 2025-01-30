@@ -54,7 +54,7 @@ const Checkout = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:5000/api/orders', formData, {
+      const response = await axios.post('https://gadgetgear-production.up.railway.app/api/orders', formData, {
         headers: { Authorization: `Bearer ${token}` }, 
       });
 
