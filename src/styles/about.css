@@ -1,0 +1,171 @@
+/* Ensure all About page styles are scoped under .about-container */
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Hero Section */
+.about-container .hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 40px 20px;
+  background: #f4f4f4;
+  border-radius: 10px;
+}
+
+.about-container .hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.about-container .hero-image {
+  max-width: 400px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.about-container .hero-text {
+  max-width: 500px;
+  text-align: left;
+}
+
+.about-container .hero-title {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.about-container .hero-subtitle {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.about-container .cta-button {
+  padding: 10px 20px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.about-container .cta-button:hover {
+  background: #0056b3;
+}
+
+/* Mission, Values, and Contact Sections */
+.about-container .mission-section,
+.about-container .values-section,
+.about-container .contact-section {
+  margin-top: 40px;
+  padding: 20px;
+}
+
+.about-container .section-title {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.about-container .section-text {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+/* Contact Section */
+.about-container .contact-section {
+  background: #f9f9f9;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.about-container .contact-link .email-button {
+  padding: 10px 20px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.about-container .contact-link .email-button:hover {
+  background: #0056b3;
+}
+
+/* Footer */
+.about-container .footer {
+  margin-top: 40px;
+  padding: 20px;
+  background: #222;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+}
+/* Values Section */
+.about-container .values-section {
+  margin-top: 40px;
+  padding: 40px 20px;
+  background: #f0f8ff; /* Light blue background for a fresh look */
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-container .values-section .section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.about-container .values-section .section-text {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.about-container .values-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.about-container .values-item {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.about-container .values-item:hover {
+  transform: translateY(-10px);
+}
+
+.about-container .values-item .values-icon {
+  font-size: 3rem;
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+.about-container .values-item .values-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.about-container .values-item .values-description {
+  font-size: 1rem;
+  color: #666;
+}
+

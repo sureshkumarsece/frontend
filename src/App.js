@@ -13,8 +13,6 @@ import LoginSignup from './components/LoginSignup';
 import Checkout from './components/Checkout';
 import ViewOrders from './components/ViewOrders';
 
-
-
 import './styles/index.css'; // Global Styles
 import './styles/navigation.css'; // Navigation Styles
 import './styles/home.css'; // Home Styles

@@ -10,6 +10,7 @@ const Cart = () => {
     const [totalQuantity, setTotalQuantity] = useState(0);
     
     const navigate = useNavigate();
+    const exchangeRate = 82; // Example exchange rate (1 USD = 82 INR)
 
     const handleRemove = (id) => {
         removeFromCart(id);
@@ -20,16 +21,21 @@ const Cart = () => {
         updateCartItem(id, newQuantity);
     };
 
-    const handleBuy = (id) => {
-        setShowPopup(true);
-        setTimeout(() => setShowPopup(false), 3000);
+    const handleBuy = () => {
+        // Directly navigate to checkout without showing the popup
+        navigate('/checkout');
     };
 
     const handleBuyAll = () => {
+        // Calculate the total price and total quantity
         const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
         const quantity = cart.reduce((acc, item) => acc + item.quantity, 0);
-        setTotalPrice(total);
+
+        // Update the state before showing the popup
+        setTotalPrice(total * exchangeRate); // Convert to INR
         setTotalQuantity(quantity);
+
+        // Now show the popup after updating state
         setShowPopup(true);
     };
 
@@ -61,7 +67,7 @@ const Cart = () => {
                             <img src={item.image} alt={item.name} />
                             <div>
                                 <h3>{item.name}</h3>
-                                <p>${item.price.toFixed(2)}</p>
+                                <p>₹{(item.price * exchangeRate).toFixed(2)}</p> {/* Convert item price to INR */}
                                 <div className="cart-controls">
                                     <button onClick={() => handleQuantityChange(item._id, item.quantity - 1)}>-</button>
                                     <span>{item.quantity}</span>
@@ -71,7 +77,7 @@ const Cart = () => {
                             <button className="remove" onClick={() => handleRemove(item._id)}>
                                 Remove
                             </button>
-                            <button className="buy" onClick={() => handleBuy(item._id)}>
+                            <button className="buy" onClick={handleBuy}> {/* Directly go to checkout */}
                                 Buy
                             </button>
                         </div>
@@ -80,11 +86,11 @@ const Cart = () => {
             )}
 
             {showPopup && (
-                <div className="popup enhanced-popup">
+                <div className="popup-overlay">
                     <div className="popup-content">
                         <h3>Order Summary</h3>
                         <p><strong>Total Quantity:</strong> {totalQuantity}</p>
-                        <p><strong>Total Price:</strong> ${totalPrice.toFixed(2)}</p>
+                        <p><strong>Total Price:</strong> ₹{totalPrice.toFixed(2)}</p> {/* Display total price in INR */}
                         <div className="popup-buttons">
                             <button className="checkout-button" onClick={handleCheckout}>Proceed to Checkout</button>
                             <button className="close-button" onClick={() => setShowPopup(false)}>Close</button>
