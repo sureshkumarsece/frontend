@@ -10,7 +10,7 @@ const Cart = () => {
     const [totalQuantity, setTotalQuantity] = useState(0);
     
     const navigate = useNavigate();
-    const exchangeRate = 82; // Example exchange rate (1 USD = 82 INR)
+    const exchangeRate = 82; 
 
     const handleRemove = (id) => {
         removeFromCart(id);
@@ -22,20 +22,20 @@ const Cart = () => {
     };
 
     const handleBuy = () => {
-        // Directly navigate to checkout without showing the popup
+        
         navigate('/checkout');
     };
 
     const handleBuyAll = () => {
-        // Calculate the total price and total quantity
+        
         const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
         const quantity = cart.reduce((acc, item) => acc + item.quantity, 0);
 
-        // Update the state before showing the popup
-        setTotalPrice(total * exchangeRate); // Convert to INR
+        
+        setTotalPrice(total * exchangeRate); 
         setTotalQuantity(quantity);
 
-        // Now show the popup after updating state
+      
         setShowPopup(true);
     };
 

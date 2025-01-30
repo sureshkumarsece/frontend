@@ -35,7 +35,6 @@ const Checkout = () => {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-    // Clear the error when user starts typing
     if (errors[e.target.name]) {
       setErrors((prevErrors) => ({ ...prevErrors, [e.target.name]: '' }));
     }
@@ -46,7 +45,7 @@ const Checkout = () => {
 
     setLoading(true);
 
-    const token = localStorage.getItem('token'); // ✅ Retrieve token
+    const token = localStorage.getItem('token'); 
 
     if (!token) {
       alert('You must be logged in to place an order.');
@@ -56,7 +55,7 @@ const Checkout = () => {
 
     try {
       const response = await axios.post('http://localhost:5000/api/orders', formData, {
-        headers: { Authorization: `Bearer ${token}` }, // ✅ Attach token
+        headers: { Authorization: `Bearer ${token}` }, 
       });
 
       setSuccessMessage('Order placed successfully!');
@@ -65,8 +64,8 @@ const Checkout = () => {
       console.error('Error placing order', error);
       if (error.response && error.response.status === 401) {
         alert('Session expired. Please log in again.');
-        localStorage.removeItem('token'); // Remove invalid token
-        navigate('/login'); // Redirect to login
+        localStorage.removeItem('token');
+        navigate('/login'); 
       } else {
         alert('Failed to place order');
       }

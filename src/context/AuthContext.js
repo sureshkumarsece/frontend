@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
   // Login function
   const login = async (email, password) => {
     try {
-      const res = await axios.post('http://localhost:5000/login', { email, password });
+      const res = await axios.post('https://gadgetgear-production.up.railway.app/login', { email, password });
       if (res.data.token) {
         localStorage.setItem('token', res.data.token);
         setUser({ token: res.data.token, ...res.data.user });
@@ -30,10 +30,10 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // Signup function
+
   const signup = async (name, email, password) => {
     try {
-      await axios.post('http://localhost:5000/signup', { name, email, password });
+      await axios.post('https://gadgetgear-production.up.railway.app/signup', { name, email, password });
       await login(email, password);
     } catch (error) {
       console.error('Signup failed', error);

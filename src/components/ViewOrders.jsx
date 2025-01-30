@@ -12,11 +12,11 @@ const ViewOrders = () => {
     const fetchOrders = async () => {
       try {
         const token = localStorage.getItem('token');
-        console.log("Token being sent:", token); // Debugging
+        console.log("Token being sent:", token); 
         const res = await axios.get('http://localhost:5000/api/orders/my-orders', {
-          headers: { Authorization: `Bearer ${token}` }, // Ensure "Bearer " prefix
+          headers: { Authorization: `Bearer ${token}` }, 
         });
-        console.log("Fetched Orders:", res.data); // Debugging
+        console.log("Fetched Orders:", res.data); 
         setOrders(res.data);
       } catch (error) {
         console.error('Error fetching orders:', error.response?.data || error.message);

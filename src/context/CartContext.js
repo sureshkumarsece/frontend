@@ -11,37 +11,36 @@ export const CartProvider = ({ children }) => {
         fetchCart();
     }, []);
 
-    // Fetch Cart from Backend
     const fetchCart = async () => {
         try {
             const response = await axios.get(`${API_URL}`);
             setCart(response.data);
         } catch (error) {
-            console.error("❌ Error fetching cart:", error);
+            console.error(" Error fetching cart:", error);
         }
     };
 
-    // Add Item to Cart
+   
     const addToCart = (product) => {
         setCart((prevCart) => {
-            // Check if the item already exists in the cart
+
             const existingItem = prevCart.find(item => item._id === product._id);
 
             if (existingItem) {
-                // If it exists, update the quantity
+                
                 return prevCart.map(item =>
                     item._id === product._id
                         ? { ...item, quantity: item.quantity + 1 }
                         : item
                 );
             } else {
-                // If it doesn't exist, add the new product with quantity 1
+                
                 return [...prevCart, { ...product, quantity: 1 }];
             }
         });
     };
 
-    // Update Item Quantity
+
     const updateCartItem = async (id, quantity) => {
         try {
             const response = await fetch(`http://localhost:4000/api/cart/${id}`, {
@@ -50,7 +49,7 @@ export const CartProvider = ({ children }) => {
                 body: JSON.stringify({ quantity })
             });
 
-            if (!response.ok) throw new Error("❌ Failed to update cart item");
+            if (!response.ok) throw new Error(" Failed to update cart item");
 
             const updatedItem = await response.json();
 
@@ -58,11 +57,10 @@ export const CartProvider = ({ children }) => {
                 item._id === id ? updatedItem : item
             ));
         } catch (error) {
-            console.error("❌ Error updating cart:", error);
+            console.error(" Error updating cart:", error);
         }
     };
 
-    // Remove Item from Cart
     const removeFromCart = (id) => {
         setCart((prevCart) => prevCart.filter((item) => item._id !== id));
     };
